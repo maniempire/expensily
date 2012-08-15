@@ -1,0 +1,9 @@
+one:
+  details: MyString
+  cost: 1.5
+  date: 2012-08-12
+
+two:
+  details: MyString
+  cost: 1.5
+  date: 2012-08-12

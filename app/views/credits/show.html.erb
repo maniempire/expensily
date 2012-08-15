@@ -1,0 +1,24 @@
+<% title "Credit" %>
+
+<p>
+  <strong>Given To:</strong>
+  <%= @credit.given_to %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @credit.date %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @credit.amount %>
+</p>
+<p>
+  <strong>Details:</strong>
+  <%= @credit.details %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_credit_path(@credit) %> |
+  <%= link_to "Destroy", @credit, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", credits_path %>
+</p>

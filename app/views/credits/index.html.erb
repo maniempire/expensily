@@ -1,0 +1,23 @@
+<% title "Credits" %>
+
+<table>
+  <tr>
+    <th>Given To</th>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>Details</th>
+  </tr>
+  <% for credit in @credits %>
+    <tr>
+      <td><%= credit.given_to %></td>
+      <td><%= credit.date %></td>
+      <td><%= credit.amount %></td>
+      <td><%= credit.details %></td>
+      <td><%= link_to "Show", credit %></td>
+      <td><%= link_to "Edit", edit_credit_path(credit) %></td>
+      <td><%= link_to "Destroy", credit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Credit", new_credit_path %></p>

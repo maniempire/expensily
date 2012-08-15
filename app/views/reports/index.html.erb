@@ -1,0 +1,24 @@
+<% title "Reports" %>
+
+<p><%= link_to "Home", home_index_path %> &nbsp; <%= link_to "Logout", destroy_user_session_path %></p>
+
+
+<table cellpadding="0" cellspacing="0" width="400" border="1">
+  <tr>
+    <th>S.No</th>
+    <th>Date</th>
+    <th>Amount</th>
+  </tr>
+  <% @report_hash.each_with_index do |(key, value), i| %>
+    <tr>
+      <td><%= (i+1) %></td>
+      <td><%= key.strftime('%B %d, %Y') %></td>
+      <td align="right"><%= value %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br/>
+
+The total Expense is : <%= @total_expense %>
+

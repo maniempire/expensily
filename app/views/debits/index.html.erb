@@ -1,0 +1,23 @@
+<% title "Debits" %>
+
+<table>
+  <tr>
+    <th>Get From</th>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>Details</th>
+  </tr>
+  <% for debit in @debits %>
+    <tr>
+      <td><%= debit.get_from %></td>
+      <td><%= debit.date %></td>
+      <td><%= debit.amount %></td>
+      <td><%= debit.details %></td>
+      <td><%= link_to "Show", debit %></td>
+      <td><%= link_to "Edit", edit_debit_path(debit) %></td>
+      <td><%= link_to "Destroy", debit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Debit", new_debit_path %></p>

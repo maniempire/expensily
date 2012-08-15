@@ -1,0 +1,24 @@
+<% title "Debit" %>
+
+<p>
+  <strong>Get From:</strong>
+  <%= @debit.get_from %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @debit.date %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @debit.amount %>
+</p>
+<p>
+  <strong>Details:</strong>
+  <%= @debit.details %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_debit_path(@debit) %> |
+  <%= link_to "Destroy", @debit, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", debits_path %>
+</p>

@@ -1,0 +1,22 @@
+<% title "Expenses" %>
+
+<p><%= link_to "Home", home_index_path %></p>
+
+<table>
+  <tr>
+    <th>Details</th>
+    <th>Cost</th>
+    <th>Date</th>
+  </tr>
+  <% for expense in @expenses %>
+    <tr>
+      <td><%= expense.details %></td>
+      <td><%= expense.cost %></td>
+      <td><%= expense.date %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Expense", new_expense_path %></p>
+
+
