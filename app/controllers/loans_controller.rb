@@ -1,4 +1,6 @@
 class LoansController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @loans = Loan.all
   end

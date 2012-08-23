@@ -1,4 +1,7 @@
 class CreditsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def index
     @credits = Credit.all
   end
