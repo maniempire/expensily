@@ -3,6 +3,7 @@ class LoansController < ApplicationController
 
   def index
     @loans = Loan.all
+    @total_debts = Loan.sum(:amount)
   end
 
   def show

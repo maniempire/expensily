@@ -1,5 +1,47 @@
 <% title "Expensily - Home" %>
 
+<p>
+<table cellpadding="0" cellspacing="0" border="1" width="700" align="center">
+
+  <tr>
+    <td align="center">
+Total Earnings
+    </td>
+
+    <td align="center">
+Total Expenses
+    </td>
+
+     <td align="center">
+Total Debts
+    </td>
+
+    <td align="center">
+Total Savings
+    </td>
+
+  </tr>
+
+  <tr>
+    <td align="center">
+   <%=  @total_credits %>
+    </td>
+
+    <td align="center">
+<%=  @total_expenses %>
+    </td>
+
+    <td align="center">
+<%=  @total_debts %>
+    </td>
+
+    <td align="center">
+-
+    </td>
+  </tr>
+</table>
+
+</p>
 <p><%= link_to "My Expenses", expenses_path %> </p>
 
 <p><%= link_to "Expense Report", reports_path %> <br/>
