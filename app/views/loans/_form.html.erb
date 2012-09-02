@@ -16,5 +16,11 @@
     <%= f.label :details %><br />
     <%= f.text_field :details %>
   </p>
+  <p>
+    <%  %>
+    <%= check_box_tag(:paid_status, AppConstants.LOAN_PAID_STATUS, @loan.paid_status == AppConstants.LOAN_PAID_STATUS ? true : false) %>
+    Loan Paid
+  </p>
+
   <p><%= f.submit %></p>
 <% end %>

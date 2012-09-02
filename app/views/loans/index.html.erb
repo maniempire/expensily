@@ -6,6 +6,7 @@
     <th>Date</th>
     <th>Amount</th>
     <th>Details</th>
+    <th>Loan Status</th>
   </tr>
   <% for loan in @loans %>
     <tr>
@@ -13,9 +14,11 @@
       <td><%= loan.date %></td>
       <td><%= loan.amount %></td>
       <td><%= loan.details %></td>
+      <td><%= loan.paid_status %></td>
       <td><%= link_to "Show", loan %></td>
       <td><%= link_to "Edit", edit_loan_path(loan) %></td>
       <td><%= link_to "Destroy", loan, :confirm => 'Are you sure?', :method => :delete %></td>
+
     </tr>
   <% end %>
 </table>

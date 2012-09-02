@@ -1,0 +1,20 @@
+defaults: &defaults
+
+  FILE_INIT_PATH : <%= "#{ Rails.root }/public" %>
+
+  LOAN_PAID_STATUS : Paid
+  LOAN_NOT_PAID_STATUS : Not Paid
+
+development:
+  <<: *defaults
+  test_setting : 100
+
+test:
+  <<: *defaults
+  test_setting : 200
+
+
+production:
+  <<: *defaults
+  test_setting : 300
+

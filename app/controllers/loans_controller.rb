@@ -17,6 +17,7 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(params[:loan])
     if @loan.save
+      @loan.update_attribute(:paid_status, AppConstants.LOAN_NOT_PAID_STATUS)
       redirect_to @loan, :notice => "Successfully created loan."
     else
       render :action => 'new'
@@ -24,13 +25,23 @@ class LoansController < ApplicationController
   end
 
   def edit
+
     @loan = Loan.find(params[:id])
+    
   end
 
   def update
+    
     @loan = Loan.find(params[:id])
     if @loan.update_attributes(params[:loan])
-      redirect_to @loan, :notice  => "Successfully updated loan."
+
+       if params[:paid_status].blank?
+        @loan.update_attribute(:paid_status, AppConstants.LOAN_NOT_PAID_STATUS)
+       else
+        @loan.update_attribute(:paid_status, params[:paid_status])
+       end
+    
+      redirect_to @loan, :notice  => "Successfully updated loan.#{params[:paid_status]}zxxzcxz"
     else
       render :action => 'edit'
     end
