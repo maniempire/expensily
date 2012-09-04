@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @expenses = Expense.all
+    @expenses = Expense.order('created_at desc').all
   end
 
   def new

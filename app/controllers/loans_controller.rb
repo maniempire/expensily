@@ -2,8 +2,12 @@ class LoansController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @loans = Loan.all
+    @loans =  Loan.order('paid_status asc').all
     @total_debts = Loan.sum(:amount)
+    @loan_paid = Loan.where(:paid_status => "Paid").sum(:amount)
+
+    @remaining_loan = @total_debts - @loan_paid
+
   end
 
   def show
@@ -41,7 +45,7 @@ class LoansController < ApplicationController
         @loan.update_attribute(:paid_status, params[:paid_status])
        end
     
-      redirect_to @loan, :notice  => "Successfully updated loan.#{params[:paid_status]}zxxzcxz"
+      redirect_to @loan, :notice  => "Successfully updated loan."
     else
       render :action => 'edit'
     end

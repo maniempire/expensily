@@ -1,12 +1,14 @@
 <% title "Loans" %>
 <p><%= link_to "Home", home_index_path %></p>
-<table>
+<p><%= link_to "New Loan", new_loan_path %></p>
+<table border="1" cellpadding="0" cellspacing="0" width="1004" >
   <tr>
-    <th>Get From</th>
-    <th>Date</th>
-    <th>Amount</th>
+    <th width="100">Get From</th>
+    <th width="90">Date</th>
+    <th width="70">Amount</th>
     <th>Details</th>
-    <th>Loan Status</th>
+    <th width="90">Loan Status</th>
+    <th colspan="3">Actions</th>
   </tr>
   <% for loan in @loans %>
     <tr>
@@ -15,13 +17,18 @@
       <td><%= loan.amount %></td>
       <td><%= loan.details %></td>
       <td><%= loan.paid_status %></td>
-      <td><%= link_to "Show", loan %></td>
-      <td><%= link_to "Edit", edit_loan_path(loan) %></td>
-      <td><%= link_to "Destroy", loan, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td width="40"><%= link_to "Show", loan %></td>
+      <td width="40"><%= link_to "Edit", edit_loan_path(loan) %></td>
+      <td width="60"><%= link_to "Destroy", loan, :confirm => 'Are you sure?', :method => :delete %></td>
 
     </tr>
   <% end %>
 </table>
 <br/>
 Total debts is : <%= @total_debts %>
-<p><%= link_to "New Loan", new_loan_path %></p>
+<br/>
+Debts till now paid is : <%= @loan_paid %>
+<br/>
+Debts to pay : <%= @remaining_loan %>
+
+
