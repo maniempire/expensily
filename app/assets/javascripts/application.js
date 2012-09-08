@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function() {
+                 $(".fancybox").fancybox({
+           'frameWidth': 680,
+          'frameHeight':495,
+            'overlayShow':true,
+            'hideOnContentClick':false,
+            'type':'iframe'
+        });
+                
+	});
