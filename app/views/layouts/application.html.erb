@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" %>
-    <%= javascript_include_tag "jquery.fancybox.pack.js?v=2.1.0" %>
+    <title><%= content_for?(:title) ? yield(:title) : "Expensily" %></title>
+
+<%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <%= javascript_include_tag "application" %>
+
+
+  <%= stylesheet_link_tag    "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" %>
+
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" %>
+  
+    
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
