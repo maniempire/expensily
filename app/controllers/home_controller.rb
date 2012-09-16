@@ -1,12 +1,14 @@
 class HomeController < ApplicationController
   before_filter :authenticate_user!
+
   def index
 
-    @total_expenses = Expense.sum(:cost)
+    @total_expenses = current_user.expenses.sum(:cost)
 
-     @total_debts = Loan.sum(:amount)
+     @total_debts = current_user.loans.sum(:amount)
 
-    @total_credits = Credit.sum(:amount)
+    @total_credits = current_user.credits.sum(:amount)
 
   end
+  
 end

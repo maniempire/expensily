@@ -3,7 +3,8 @@ class CreditsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @credits = Credit.all
+    #@credits = Credit.all
+    @credits = current_user.credits
   end
 
   def show
@@ -17,6 +18,7 @@ class CreditsController < ApplicationController
   def create
     @credit = Credit.new(params[:credit])
     if @credit.save
+      @credit.update_attribute(:user_id, current_user.id)
       redirect_to @credit, :notice => "Successfully created credit."
     else
       render :action => 'new'

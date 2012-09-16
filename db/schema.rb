@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120902161550) do
+ActiveRecord::Schema.define(:version => 20120915152355) do
 
   create_table "credits", :force => true do |t|
     t.string   "given_to"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120902161550) do
     t.string   "details"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "debits", :force => true do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120902161550) do
     t.string   "details"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "expenses", :force => true do |t|
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120902161550) do
     t.date     "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "loans", :force => true do |t|
@@ -47,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120902161550) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "paid_status"
+    t.integer  "user_id"
   end
 
   create_table "reports", :force => true do |t|
@@ -54,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20120902161550) do
     t.float    "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

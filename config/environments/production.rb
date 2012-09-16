@@ -50,6 +50,20 @@ Expensily::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => "expensily.maniempire.com" }
+
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'maniempire.com',
+    :user_name            => 'no-reply@maniempire.com',
+    :password             => 'man1emp1re*i23',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+  #ActionMailer::Base.delivery_method = :smtp
+
 
   # Enable threaded mode
   # config.threadsafe!

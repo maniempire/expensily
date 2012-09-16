@@ -1,6 +1,9 @@
 class DebitsController < ApplicationController
   def index
-    @debits = Debit.all
+    #@debits = Debit.all
+
+    @debits = current_user.credits
+    
   end
 
   def show
@@ -14,6 +17,7 @@ class DebitsController < ApplicationController
   def create
     @debit = Debit.new(params[:debit])
     if @debit.save
+      @debit.update_attribute(:user_id, current_user.id)
       redirect_to @debit, :notice => "Successfully created debit."
     else
       render :action => 'new'

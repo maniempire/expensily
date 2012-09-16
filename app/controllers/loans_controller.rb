@@ -2,9 +2,9 @@ class LoansController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @loans =  Loan.order('paid_status asc').all
-    @total_debts = Loan.sum(:amount)
-    @loan_paid = Loan.where(:paid_status => "Paid").sum(:amount)
+    @loans =  current_user.loans.order('paid_status asc').all
+    @total_debts = current_user.loans.sum(:amount)
+    @loan_paid = current_user.loans.where(:paid_status => "Paid").sum(:amount)
 
     @remaining_loan = @total_debts - @loan_paid
 
