@@ -1,0 +1,17 @@
+<%= form_for @expense do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :details %><br />
+    <%= f.text_field :details %>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+

@@ -1,0 +1,20 @@
+<% title "Expense" %>
+
+<p>
+  <strong>Details</strong>
+  <%= @expense.details %>
+</p>
+<p>
+  <strong>Cost:</strong>
+  <%= @expense.cost %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @expense.date %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_expense_path(@expense) %> |
+  <%= link_to "Destroy", @expense, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", expenses_path %>
+</p>
