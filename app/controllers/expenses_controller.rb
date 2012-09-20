@@ -13,6 +13,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @user_categories = current_user.categories + User.find(1).categories #admin categories which is default
   end
 
   def create

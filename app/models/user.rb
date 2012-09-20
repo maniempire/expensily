@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
   has_many :credits
   has_many :loans
   has_many :reports
+  has_many :categories
 
 end

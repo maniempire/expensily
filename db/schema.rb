@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915152355) do
+ActiveRecord::Schema.define(:version => 20120920172247) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "credits", :force => true do |t|
     t.string   "given_to"
@@ -37,9 +44,10 @@ ActiveRecord::Schema.define(:version => 20120915152355) do
     t.string   "details"
     t.float    "cost"
     t.date     "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
   create_table "loans", :force => true do |t|
