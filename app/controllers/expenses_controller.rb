@@ -28,6 +28,8 @@ class ExpensesController < ApplicationController
 
    def edit
     @expense = Expense.find(params[:id])
+    @user_categories = current_user.categories + User.find(1).categories #admin categories which is default
+    
   end
 
   def update

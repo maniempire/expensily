@@ -10,7 +10,8 @@
   </p>
    <p>
    Select Expense Category<br />
-   <%= f.select(:category_id, options_for_select(@user_categories.collect {|p| [ p.name, p.id ] },   "Select Category"), :selected =>f.object.category_id) %>
+   <%= f.select :category_id, options_for_select(@user_categories.collect{|p| [p.name, p.id]}, @expense.category_id), :prompt => 'Select Category'%>
+ 
   </p>
   <p>
     <%= f.label :date %><br />
