@@ -16,37 +16,29 @@
 
 $(document).ready(function($) {
 
-   $("#dateselect").datepicker();
+	$("#dateselect").datepicker();
 
-    $(".fancybox").fancybox({
-           'frameWidth': 680,
-          'frameHeight':495,
-            'overlayShow':true,
-            'hideOnContentClick':false,
-            'type':'iframe'
-        });
+	$(".fancybox").fancybox({
+		'frameWidth': 680,
+		'frameHeight':495,
+		'overlayShow':true,
+		'hideOnContentClick':false,
+		'type':'iframe'
+	});
 
+	$("#category_text_input").hide();
 
-        var data = [
-    ['Heavy Industry', 12],['Retail', 9], ['Light Industry', 14],
-    ['Out of home', 16],['Commuting', 7], ['Orientation', 9]
-  ];
+	$("#expense_category_id").live("change", function() {
 
-  var plot1 = jQuery.jqplot ('chart1', [data],
-    {
-      seriesDefaults: {
-        // Make this a pie chart.
-        renderer: jQuery.jqplot.PieRenderer,
-        rendererOptions: {
-          // Put data labels on the pie slices.
-          // By default, labels show the percentage of the slice.
-          showDataLabels: true
-        }
-      },
-      legend: { show:true, location: 'e' }
-    }
-  );
+    	var category_value = $(this).find('option:selected').text(); 
 
+		if(category_value == "Others") {
+			$("#category_text_input").show();
+		}
+
+		
+
+	});
 
 
 });
