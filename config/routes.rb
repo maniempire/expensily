@@ -6,7 +6,7 @@ Expensily::Application.routes.draw do
   resources :credits
 
   get "home/index"
-
+  
   resources :reports
 
   devise_for :users
@@ -14,7 +14,9 @@ Expensily::Application.routes.draw do
   #match "users/sign_out" => 'home#index'
 
   resources :expenses
-
+  
+  match "get_monthwise_expenses" => "expenses#get_monthwise_expenses", :as => "get_monthwise_expenses"
+ 
   root :to => 'home#index'
 
   # The priority is based upon order of creation:

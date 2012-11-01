@@ -4,26 +4,13 @@
 
 <p><%= link_to "New Expense", new_expense_path %></p>
 
-<table border="1" cellpadding="0" cellspacing="0" width="800" >
-  <tr>
-    <th width="400">Details</th>
-    <th width="100">Cost</th>
-    <th width="150">Category</th>
-    <th width="100">Date</th>
-  </tr>
-  <% for expense in @expenses %>
-    <tr>
-      <td><%= expense.details %></td>
-      <td><%= expense.cost %></td>
-      <td><%= expense.category.name unless expense.category.blank? %></td>
-      <td><%= expense.date %></td>
-       <td><%= link_to "Show", expense %></td>
-      <td><%= link_to "Edit", edit_expense_path(expense) %></td>
-      <td><%= link_to "Destroy", expense, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
 
+Select Month to filter record by month-wise: 
+<%= select_tag :month_wise_expense, options_for_select(Array[*@expense_month_array.collect {|v,i| [v,@expense_month_array.index(v)] }]), { :prompt => "Select a Month" }  %>
+<br />
+<br />
+<div id="expense_list">
 
+<%= render "expense_list" %>
 
-
+</div>

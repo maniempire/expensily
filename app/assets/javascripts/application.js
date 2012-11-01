@@ -30,15 +30,37 @@ $(document).ready(function($) {
 
 	$("#expense_category_id").live("change", function() {
 
-    	var category_value = $(this).find('option:selected').text(); 
+		var category_value = $(this).find('option:selected').text(); 
 
 		if(category_value == "Others") {
 			$("#category_text_input").show();
 		}
 
-		
-
 	});
+	
+	$("#month_wise_expense").live("change", function() {
+		
+		selected_month = $(this).find('option:selected').text(); 
+	
+	if(selected_month != "Select a Month"){
+	
+		$.ajax({
+			beforeSend: function(request) {
+				request.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+			},
+			type: "POST",
+			url: '/get_monthwise_expenses',
+			data: 'expense_month=' + selected_month,
+			success: function( response ) {
+			}
+		});
+		
+	}
+		return false;
+		
+	});
+	
+	
 
 
 });

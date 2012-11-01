@@ -4,7 +4,11 @@ class ExpensesController < ApplicationController
 
   def index
     #@expenses = Expense.order('created_at desc').all
-    @expenses = current_user.expenses.order('created_at desc').all
+    @expenses = current_user.expenses.order('date desc').all
+    
+    @expense_month_array = current_user.expenses.map { |d| d.date.strftime('%B %Y') }.uniq
+    
+   
   end
 
   def show
@@ -76,6 +80,22 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
     @expense.destroy
     redirect_to expenses_url, :notice => "Successfully destroyed expense."
+  end
+  
+  def get_monthwise_expenses
+    
+    month = params[:expense_month]
+   
+    date = Chronic.parse(month)
+    
+    month_num = date.strftime('%-m')
+    
+    expense_year = date.strftime('%Y')
+
+    puts expense_year
+    
+    @expenses = Expense.where('extract(month from date) = ? and extract(year from date) = ? and user_id = ?', month_num, expense_year, current_user.id).order('date desc')
+ 
   end
 
 end
