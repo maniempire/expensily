@@ -22,3 +22,50 @@
 
 The total Expense is : <%= @total_expense %>
 
+<br/>
+
+
+Graphical Display:
+
+<br/>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	<td>
+<div id="line-example" style="width:600px;height:400px;display:none;"></div>
+</td>
+<td>
+<div id="bar-example" style="width:600px;height:400px;"></div>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+Morris.Line({
+  element: 'line-example',
+  data: [
+  	{ y: '2006', a: 100, b: 90 },
+    { y: '2007', a: 75,  b: 65 },
+    { y: '2008', a: 50,  b: 40 },
+    { y: '2009', a: 75,  b: 65 },
+    { y: '2010', a: 50,  b: 40 },
+    { y: '2011', a: 75,  b: 65 },
+    { y: '2012', a: 100, b: 90 }
+  ],
+  xkey: 'y',
+  ykeys: ['a', 'b'],
+  labels: ['Series A', 'Series B']
+});
+
+Morris.Bar({
+  element: 'bar-example',
+  data: [
+ <% @report_hash.each_with_index do |(key, value), i| %>
+    { y: '<%= key.strftime('%b %d, %Y') %>', a: <%= value %>},
+<% end %>
+   
+    
+  ],
+  xkey: 'y',
+  ykeys: ['a'],
+  labels: ['Expense']
+});
+</script>
