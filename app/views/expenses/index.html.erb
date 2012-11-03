@@ -5,11 +5,11 @@
 <p><%= link_to "New Expense", new_expense_path %></p>
 
 
-Select Month to filter record by month-wise: 
-<%= select_tag :month_wise_expense, options_for_select(Array[*@expense_month_array.collect {|v,i| [v,@expense_month_array.index(v)] }]), { :prompt => "Select a Month" }  %>
+Filter record by Month: 
+<%= select_tag :month_wise_expense, options_for_select(Array[*@expense_month_array.collect {|v,i| [v,@expense_month_array.index(v)] }]), { :prompt => "Select a Month" }  %>&nbsp;&nbsp;Filter record by Category: <%= select_tag :category_wise_expense, options_from_collection_for_select(@user_categories,:id, :name), { :prompt => "Select a Category" }  %>
 <br />
 <br />
-<div id="expense_list" style="float:center;">
+<div id="expense_list" style="float:left;">
 
 <%= render "expense_list" %>
 

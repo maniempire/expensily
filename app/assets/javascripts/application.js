@@ -61,6 +61,30 @@ $(document).ready(function($) {
 	});
 	
 	
+	$("#category_wise_expense").live("change", function() {
+		
+		selected_category = $(this).find('option:selected').val(); 
+	
+	if(selected_category != "Select a Category"){
+	
+		$.ajax({
+			beforeSend: function(request) {
+				request.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+			},
+			type: "POST",
+			url: '/get_categorywise_expenses',
+			data: 'expense_category=' + selected_category,
+			success: function( response ) {
+			}
+		});
+		
+	}
+		return false;
+		
+	});
+	
+	
+	
 
 
 });

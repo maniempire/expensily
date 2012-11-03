@@ -16,6 +16,8 @@ Expensily::Application.routes.draw do
   resources :expenses
   
   match "get_monthwise_expenses" => "expenses#get_monthwise_expenses", :as => "get_monthwise_expenses"
+  
+  match "get_categorywise_expenses" => "expenses#get_categorywise_expenses", :as => "get_categorywise_expenses"
  
   root :to => 'home#index'
 
