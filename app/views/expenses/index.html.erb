@@ -9,7 +9,7 @@ Select Month to filter record by month-wise:
 <%= select_tag :month_wise_expense, options_for_select(Array[*@expense_month_array.collect {|v,i| [v,@expense_month_array.index(v)] }]), { :prompt => "Select a Month" }  %>
 <br />
 <br />
-<div id="expense_list">
+<div id="expense_list" style="float:center;">
 
 <%= render "expense_list" %>
 

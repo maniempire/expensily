@@ -8,6 +8,9 @@ class ExpensesController < ApplicationController
     
     @expense_month_array = current_user.expenses.map { |d| d.date.strftime('%B %Y') }.uniq
     
+    @expense_month_array.push("All")
+    
+    @expense_total = current_user.expenses.sum(:cost)
    
   end
 
@@ -85,6 +88,8 @@ class ExpensesController < ApplicationController
   def get_monthwise_expenses
     
     month = params[:expense_month]
+    
+    unless month == "All"
    
     date = Chronic.parse(month)
     
@@ -92,10 +97,19 @@ class ExpensesController < ApplicationController
     
     expense_year = date.strftime('%Y')
 
-    puts expense_year
-    
     @expenses = Expense.where('extract(month from date) = ? and extract(year from date) = ? and user_id = ?', month_num, expense_year, current_user.id).order('date desc')
- 
+  
+    @expense_total = @expenses.sum(:cost)
+    
+  else
+    
+    @expenses = current_user.expenses.order('date desc').all
+    
+    @expense_total = current_user.expenses.sum(:cost)
+    
+  end
+    
+   
   end
 
 end
