@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
     #@expenses = Expense.order('created_at desc').all
     #@expenses = current_user.expenses.order('date desc').all.page(params[:page]).per(5)
     
-    @expenses = current_user.expenses.order('date desc').page(params[:page]).per(2)
+    @expenses = current_user.expenses.order('date desc').page(params[:page]).per(25)
   
     @expense_month_array = current_user.expenses.map { |d| d.date.strftime('%B %Y') }.uniq
 
