@@ -4,8 +4,10 @@ class ExpensesController < ApplicationController
 
   def index
     #@expenses = Expense.order('created_at desc').all
-    @expenses = current_user.expenses.order('date desc').all
-
+    #@expenses = current_user.expenses.order('date desc').all.page(params[:page]).per(5)
+    
+    @expenses = current_user.expenses.order('date desc').page(params[:page]).per(2)
+  
     @expense_month_array = current_user.expenses.map { |d| d.date.strftime('%B %Y') }.uniq
 
     @expense_month_array.push("All")
@@ -107,13 +109,13 @@ class ExpensesController < ApplicationController
 
       expense_year = date.strftime('%Y')
 
-      @expenses = Expense.where('extract(month from date) = ? and extract(year from date) = ? and user_id = ?', month_num, expense_year, current_user.id).order('date desc')
+      @expenses = Expense.where('extract(month from date) = ? and extract(year from date) = ? and user_id = ?', month_num, expense_year, current_user.id).order('date desc').page(params[:page]).per(25)
 
       @expense_total = @expenses.sum(:cost)
 
     else
 
-      @expenses = current_user.expenses.order('date desc').all
+      @expenses = current_user.expenses.order('date desc').page(params[:page]).per(25)
 
       @expense_total = current_user.expenses.sum(:cost)
 
@@ -126,7 +128,7 @@ class ExpensesController < ApplicationController
     
     category_id = params[:expense_category]
     
-    @expenses = current_user.expenses.where(:category_id => category_id) unless category_id.blank?
+    @expenses = current_user.expenses.where(:category_id => category_id).page(params[:page]).per(25) unless category_id.blank?
     
     @expense_total = @expenses.sum(:cost)
     

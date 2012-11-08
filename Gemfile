@@ -35,6 +35,8 @@ gem 'jquery-rails'
 
 gem 'chronic'
 
+gem 'kaminari'
+
 gem "nifty-generators", :group => :development
 
 # To use ActiveModel has_secure_password
