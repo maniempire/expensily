@@ -11,3 +11,58 @@
  *= require_self
  *= require_tree .
 */
+
+.info-bar {
+
+height:32px;
+
+margin: 0 11px 0 0;
+
+}
+
+.welcome {
+    color: #60554B;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    line-height: 32px;
+    margin: 0 0 0 20px;
+}
+
+.user-name {
+    
+    color: #60554B;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    padding: 0 10px 0 8px;
+}
+
+.home {
+	padding:0 10px 0 30px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#60554b;
+	line-height:32px;
+	float:right;
+	cursor:pointer;
+}
+.school {
+    color: #60554B;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 32px;
+    padding: 0 10px 0 8px;
+}
+.logout {
+	padding:0 10px 0 30px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#60554b;
+	line-height:32px;
+	float:right;
+	cursor:pointer;
+	text-decoration:none;
+}

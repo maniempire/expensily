@@ -42,17 +42,30 @@ Total Savings
 </table>
 
 </p>
-<p><%= link_to "My Expenses", expenses_path %> </p>
+<p>
+	<h2>Monthly expense view:</h2>
+	</p>
+<p>
+	<div id="monthly_expense_chart" style="width:600px;height:400px;align:center;"></div>
+</p>	
 
-<p><%= link_to "Expense Report", reports_path %> <br/>
+ <script type="text/javascript">
 
-</p>
+Morris.Bar({
+  element: 'monthly_expense_chart',
+  data: [
+ <% @monthly_expense_hash.each_with_index do |(key, value), i| %>
+    { y: '<%= key %>', a: <%= value %>},
+<% end %>
 
-<p><%= link_to "My Credits", credits_path %> </p>
 
-<p><%= link_to "My Loans", loans_path %> </p>
+  ],
+  xkey: 'y',
+  ykeys: ['a'],
+  labels: ['Expense']
+});
+</script>
 
- 
  
 <%#*<a class="fancybox" href="/branch_campus_part_one.pdf">Open PDF</a>%>
 

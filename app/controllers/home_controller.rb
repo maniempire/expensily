@@ -8,6 +8,8 @@ class HomeController < ApplicationController
      @total_debts = current_user.loans.sum(:amount)
 
     @total_credits = current_user.credits.sum(:amount)
+    
+    @monthly_expense_hash = Expense.get_monthly_expense_hash(current_user)
 
   end
   

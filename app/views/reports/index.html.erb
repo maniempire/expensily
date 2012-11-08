@@ -1,8 +1,6 @@
 <% title "Reports" %>
 
-<p><%= link_to "Home", home_index_path %></p>
-
-
+<p>
 <table cellpadding="0" cellspacing="0" width="400" border="1">
   <tr>
     <th>S.No</th>
@@ -17,7 +15,7 @@
     </tr>
   <% end %>
 </table>
-
+</p>
 <br/>
 
 The total Expense is : <%= @total_expense %>
@@ -61,8 +59,7 @@ Morris.Bar({
  <% @report_hash.each_with_index do |(key, value), i| %>
     { y: '<%= key.strftime('%b %d, %Y') %>', a: <%= value %>},
 <% end %>
-   
-    
+
   ],
   xkey: 'y',
   ykeys: ['a'],
