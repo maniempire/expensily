@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Expensily" %></title>
 
@@ -17,20 +17,22 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <div id="user_nav">
-  <% if user_signed_in? %>
-  
-<%= render "/layouts/header_menu" %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
-      <%= yield %>
-    </div>
+	
+		<%= render :partial => "/layouts/header_nav" if user_signed_in? %>
+
+      	<div class="container body-container">	
+	
+			<%= render :partial => "/layouts/flash_message" %>	
+			    	
+		<%= yield %>
+
+		</div>
+    
+		<hr>
+
+		      <footer style="float:right;">
+		        <p class="muted credit">&copy; <a href="http://maniempire.com" target="_blank">Maniempire</a>, Copyright 2013, All rights reserved.</p>
+		      </footer>
+
   </body>
 </html>

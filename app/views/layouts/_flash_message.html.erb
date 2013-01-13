@@ -1,0 +1,25 @@
+<% flash.each do |name, msg| %>
+
+	<% unless msg.blank? %>
+			
+			<%
+			
+			class_name = "alert"
+			name = name.to_s
+			
+			class_name = "alert alert-info" if name == "info"
+			
+			class_name = "alert alert-error" if name == "alert" || name == "error"
+			
+			class_name = "alert alert-success" if name == "notice"
+			
+			%>
+			
+			<%= content_tag :div, :id => "flash_#{name}", :class => "#{class_name}" do -%>
+			 <%= msg %>
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<% end -%>
+		
+		<% end%>
+		
+		<% end%>

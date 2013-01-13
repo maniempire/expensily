@@ -1,0 +1,40 @@
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand brand-font" href="#">&nbsp;Expensily</a>
+          <div class="nav-collapse collapse">
+	 <span class="icon-bar"></span>    
+				<p class="navbar-text pull-right">
+	             <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+	            </p>
+					<p class="navbar-text pull-right">
+		             &nbsp;|&nbsp;
+		            </p>
+	   
+<p class="navbar-text pull-right">
+              Logged in as <%= current_user.email %><!-- <%#= link_to "#{current_user.email}", profile_path(current_user.id), :class=> "navbar-link" %> -->
+            </p>
+	
+	<% puts controller_name %>
+	
+            <ul class="nav" id="header-nav-id">
+              <li class='<%= controller_name == "home"? "active" : "" %>'><%= link_to "Home", root_path %></li>
+				<li class='<%= controller_name == "expenses"? "active" : "" %>'><a href="/expenses">Expenses</a></li>
+				<li class='<%= controller_name == "reports"? "active" : "" %>'><a href="/reports">Reports</a></li>
+				<li class='<%= controller_name == "loans"? "active" : "" %>'><a href="/loans">Loans</a></li>
+				<li class='<%= controller_name == "credits"? "active" : "" %>'><a href="/credits">Credits</a></li>
+				
+              <li><a href="#about">About</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
