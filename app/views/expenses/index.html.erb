@@ -1,8 +1,8 @@
 <% title "Expenses" %>
 
-
-
-<p><%= link_to "New Expense", new_expense_path %></p>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_expense_path,
+            :class => 'btn btn-primary' %>
 
 
 Filter record by Month: 
